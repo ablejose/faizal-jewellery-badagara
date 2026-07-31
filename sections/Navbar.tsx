@@ -18,7 +18,7 @@ export function Navbar() {
   const { primary, secondary } = splitBrandName(BRAND.businessName);
 
   useEffect(() => {
-    if (\!open) return;
+    if (!open) return;
 
     const close = () => setOpen(false);
     const previousOverflow = document.body.style.overflow;
@@ -71,7 +71,7 @@ export function Navbar() {
           className="flex h-11 w-11 items-center justify-center rounded-pill border border-border text-ivory md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          onClick={() => setOpen((v) => \!v)}
+          onClick={() => setOpen((v) => !v)}
         >
           <span className="text-lg">{open ? "✕" : "☰"}</span>
         </button>
