@@ -25,7 +25,7 @@ export function StoryVideoPlayer({ src, segments, label }: StoryVideoPlayerProps
         muted
         autoPlay
         playsInline
-        loop={\!segments}
+        loop={!segments}
         preload="metadata"
         aria-label={label}
       />

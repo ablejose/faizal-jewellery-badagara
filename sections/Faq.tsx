@@ -44,7 +44,7 @@ export function Faq() {
                   id={panelId}
                   role="region"
                   aria-labelledby={buttonId}
-                  hidden={\!isOpen}
+                  hidden={!isOpen}
                   className="pb-6 font-sans text-body text-muted"
                 >
                   {item.answer}

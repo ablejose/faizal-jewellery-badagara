@@ -30,7 +30,7 @@ export function LoadingScreen() {
     };
   }, []);
 
-  if (\!mounted) return null;
+  if (!mounted) return null;
 
   return (
     <div
