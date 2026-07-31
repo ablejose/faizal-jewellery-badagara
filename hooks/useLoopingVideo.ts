@@ -9,7 +9,7 @@ export function useLoopingVideo(
 ): void {
   useEffect(() => {
     const video = ref.current;
-    if (\!video || \!segments) return;
+    if (!video || !segments) return;
 
     const { startAt, loopEnd } = segments;
 
