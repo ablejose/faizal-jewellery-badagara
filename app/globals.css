@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: var(--tw-border-color, rgba(255, 255, 255, 0.1));
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #050509;
+  color: #f6f3f0;
+}
+
+/* Visible focus for keyboard users (Document 3 §9) */
+:focus-visible {
+  outline: 2px solid #f2d28b;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Respect reduced motion for UI transitions (Document 3 §9) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms \!important;
+    animation-iteration-count: 1 \!important;
+    transition-duration: 0.001ms \!important;
+    scroll-behavior: auto \!important;
+  }
+}
+
+/* Looping golden light sweep across the hero title (Hayaz Gold). */
+@keyframes gold-sweep {
+  0% {
+    background-position: 150% center;
+  }
+  100% {
+    background-position: -50% center;
+  }
+}
+
+/* Right-to-left looping marquee for the storefront images. */
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-rtl {
+  animation: marquee-rtl 32s linear infinite;
+  will-change: transform;
+}
+
+.marquee-rtl:hover {
+  animation-play-state: paused;
+}
+
+.text-gold-sweep {
+  background-image: linear-gradient(
+    100deg,
+    #f2d28b 0%,
+    #f2d28b 22%,
+    #fbe6b3 36%,
+    #fff9ea 50%,
+    #fbe6b3 64%,
+    #f2d28b 78%,
+    #f2d28b 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  line-height: 1.15;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+  margin-top: -0.06em;
+  animation: gold-sweep 6s linear infinite;
+}
+
+@layer components {
+  .container-lux {
+    @apply mx-auto w-full max-w-content px-6 md:px-10 lg:px-16;
+  }
+
+  .label-eyebrow {
+    @apply font-sans text-caption uppercase tracking-[0.2em] text-gold;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center rounded-pill px-8 py-3 font-sans text-sm font-medium tracking-wide transition-colors duration-300 ease-lux md:min-h-[48px];
+  }
+
+  .btn-primary {
+    @apply btn bg-gold text-background hover:bg-ivory;
+  }
+
+  .btn-secondary {
+    @apply btn border border-gold/60 text-ivory hover:border-gold hover:text-gold;
+  }
+}
