@@ -97,6 +97,17 @@ export const COLLECTIONS: Collection[] = [
       { id: "rg-5", name: "Classic Gold Ring", price: 34000, image: PH.a },
     ],
   },
+  {
+    slug: "stones",
+    name: "Stones",
+    description: "Certified natural gemstones and precious loose stones — sapphire, emerald, coral and more.",
+    products: [
+      { id: "st-1", name: "Blue Sapphire (Natural)", price: 45000, image: PH.a },
+      { id: "st-2", name: "Emerald Gemstone", price: 38000, image: PH.b },
+      { id: "st-3", name: "Assorted Precious Stones", price: 25000, image: PH.c },
+      { id: "st-4", name: "Coral Gemstone", price: 15000, image: PH.d },
+    ],
+  },
 ];
 
 /** Look up a single collection by slug. */
