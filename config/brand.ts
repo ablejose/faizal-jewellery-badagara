@@ -10,7 +10,7 @@ export const BRAND: BrandConfig = {
   favicon: "/favicon.ico",
 
   heroVideo:
-    "https://res.cloudinary.com/fylz5e3j/video/upload/v1782936959/VN20260702_013328_tbexfn.mp4",
+    "https://res.cloudinary.com/sqsrrir4/video/upload/v1786657281/faizal/faizal_hero.mp4",
 
   storyVideos: [
     {

@@ -1,5 +1,10 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * Design tokens (Document 2 §15 & Document 5 §3–§5).
+ * Colors, spacing scale, typography and radii are centralized here so the
+ * visual language is consistent and reusable.
+ */
 const config: Config = {
   content: [
     "./app/**/*.{ts,tsx}",
@@ -16,8 +21,10 @@ const config: Config = {
         border: "rgba(255,255,255,0.10)",
       },
       fontFamily: {
+        // Wired to next/font CSS variables in app/layout.tsx
         display: ["var(--font-cormorant)", "Cormorant Garamond", "serif"],
         sans: ["var(--font-inter)", "Inter", "system-ui", "sans-serif"],
+        title: ["var(--font-montserrat)", "Montserrat", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display-xl": ["clamp(3.5rem, 8vw, 5.5rem)", { lineHeight: "1.05", letterSpacing: "-0.01em" }],
@@ -28,6 +35,7 @@ const config: Config = {
         caption: ["0.8125rem", { lineHeight: "1.5", letterSpacing: "0.08em" }],
       },
       spacing: {
+        // 8-point scale (Document 5 §5)
         "1": "4px",
         "2": "8px",
         "4": "16px",

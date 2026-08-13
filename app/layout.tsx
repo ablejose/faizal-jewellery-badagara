@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter, Montserrat } from "next/font/google";
 import { BRAND } from "@/config/brand";
 import { buildJsonLd, getSiteUrl } from "@/lib/seo";
 import { LoadingScreen } from "@/components/LoadingScreen";
@@ -15,6 +15,13 @@ const cormorant = Cormorant_Garamond({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -67,13 +74,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const jsonLd = buildJsonLd(BRAND);
 
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${inter.variable} ${montserrat.variable}`}>
       <head>
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="" />
         {jsonLd.map((schema, index) => (
           <script
             key={index}
             type="application/ld+json"
+            // JSON-LD is generated from validated configuration (Document 3 §7, §11).
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
           />
         ))}

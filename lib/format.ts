@@ -1,3 +1,8 @@
+/**
+ * Pure, reusable formatting utilities. No brand data lives here.
+ */
+
+/** Strip everything but digits (and a leading +) from a phone/WhatsApp value. */
 export function toDialable(value: string): string {
   const trimmed = value.trim();
   const hasPlus = trimmed.startsWith("+");
@@ -5,16 +10,19 @@ export function toDialable(value: string): string {
   return hasPlus ? `+${digits}` : digits;
 }
 
+/** Build a tel: href from a phone number. */
 export function telHref(phone: string): string {
   return `tel:${toDialable(phone)}`;
 }
 
+/** Build a wa.me link with an optional prefilled message. */
 export function whatsappHref(whatsapp: string, message?: string): string {
   const number = whatsapp.replace(/\D/g, "");
   const base = `https://wa.me/${number}`;
   return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
+/** Human-readable label for a social URL: strip protocol, "www." and trailing slash. */
 export function socialLabel(url: string): string {
   return url
     .replace(/^https?:\/\//, "")
@@ -22,19 +30,30 @@ export function socialLabel(url: string): string {
     .replace(/\/+$/, "");
 }
 
+/** Derive an @handle from a profile URL (uses the last path segment). */
 export function socialHandle(url: string): string {
   const handle = url.replace(/\/+$/, "").split("/").pop() ?? "";
   return handle ? `@${handle}` : url;
 }
 
+/**
+ * Return the brand/business name as a single primary line, with no secondary
+ * descriptor. The wordmark shows the full name together (e.g. "Gen Alpha")
+ * instead of splitting the first word onto its own line.
+ */
 export function splitBrandName(name: string): { primary: string; secondary: string } {
-  const trimmed = name.trim();
-  const words = trimmed.split(/\s+/);
-  const letterCount = trimmed.replace(/\s+/g, "").length;
+  return { primary: name.trim(), secondary: "" };
+}
 
-  if (words.length > 1 && letterCount > 7) {
-    return { primary: words[0], secondary: words.slice(1).join(" ") };
-  }
+/**
+ * Format a plain rupee amount with the ₹ symbol and Indian digit grouping.
+ * e.g. 25000 -> "₹ 25,000", 185000 -> "₹ 1,85,000".
+ */
+export function formatRupees(amount: number): string {
+  return `₹ ${Math.round(amount).toLocaleString("en-IN")}`;
+}
 
-  return { primary: trimmed, secondary: "" };
+/** Build the route to a collection page from its slug. */
+export function collectionHref(slug: string): string {
+  return `/collections/${slug}`;
 }
