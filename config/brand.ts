@@ -10,7 +10,7 @@ export const BRAND: BrandConfig = {
   favicon: "/favicon.ico",
 
   heroVideo:
-    "https://res.cloudinary.com/sqsrrir4/video/upload/v1786657281/faizal/faizal_hero.mp4",
+    "https://res.cloudinary.com/sqsrrir4/video/upload/v1786713474/faizal/faizal_hero.mp4",
 
   storyVideos: [
     {
@@ -18,8 +18,8 @@ export const BRAND: BrandConfig = {
       description:
         "ഈ നാടിൻ്റെ പൈതൃകവും പുതുമയും ഒത്തുചേരുന്ന ആഭരണങ്ങൾ. തലമുറകളായി നിങ്ങൾ നൽകുന്ന വിശ്വാസത്തിന് സ്വർണ്ണത്തേക്കാൾ തിളക്കമുണ്ട്.",
       video:
-        "https://res.cloudinary.com/sqsrrir4/video/upload/v1786657281/faizal/faizal_hero.mp4",
-      segments: { startAt: 16, loopEnd: 24 },
+        "https://res.cloudinary.com/sqsrrir4/video/upload/v1786713474/faizal/faizal_hero.mp4",
+      segments: { startAt: 3, loopEnd: 6 },
     },
   ],
 
