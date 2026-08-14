@@ -43,7 +43,7 @@ export function CollectionPreview({ collection, images }: CollectionPreviewProps
         </Link>
       </div>
 
-      <div className="mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+      <div className="container-lux mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
         <div className="marquee-rtl flex w-max gap-6">
           {track.map((src, index) => (
             <Link
