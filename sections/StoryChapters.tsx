@@ -13,7 +13,7 @@ export function StoryChapters() {
                 <blockquote className="font-display text-display-m font-bold text-gold break-words">
                   {chapter.quote}
                 </blockquote>
-                <p className="mt-6 max-w-md break-words font-sans text-body-lg text-muted">
+                <p className="mt-6 max-w-md break-words font-sans text-sm leading-relaxed text-gold">
                   {chapter.description}
                 </p>
               </Reveal>
