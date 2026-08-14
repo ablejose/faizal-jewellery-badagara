@@ -83,7 +83,11 @@ export function primaryCloudName(): string {
 export async function getPublicManifest(): Promise<Manifest> {
   const url = `https://res.cloudinary.com/${primaryCloudName()}/raw/upload/${MANIFEST_PUBLIC_ID}`;
   try {
-    const res = await fetch(url, { next: { tags: ["manifest"] } });
+    // Always read the live manifest so the public catalogue reflects the
+    // current Cloudinary state (products may be updated out-of-band, not only
+    // via the admin panel's revalidateTag). Kept uncached to avoid serving a
+    // stale/empty manifest from Vercel's persisted data cache.
+    const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) return emptyManifest();
     return normalizeManifest(await res.json());
   } catch {
