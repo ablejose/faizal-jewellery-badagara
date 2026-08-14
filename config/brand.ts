@@ -18,7 +18,7 @@ export const BRAND: BrandConfig = {
       description:
         "അണിയാൻ തീരെ ഭാരമില്ലാത്ത, എന്നാൽ കണ്ണഞ്ചിപ്പിക്കുന്ന ഡിസൈനുകൾ. നിങ്ങളുടെ ഓരോ സാധാരണ ദിവസത്തെയും മനോഹരമാക്കാൻ ഇവ മതിയാകും.",
       video:
-        "https://res.cloudinary.com/fylz5e3j/video/upload/v1782936959/VN20260702_013328_tbexfn.mp4",
+        "https://res.cloudinary.com/sqsrrir4/video/upload/v1786657281/faizal/faizal_hero.mp4",
       segments: { startAt: 0, loopEnd: 8 },
     },
     {
@@ -26,7 +26,7 @@ export const BRAND: BrandConfig = {
       description:
         "ഓരോ ആഭരണവും ഓരോ കലാരൂപമാണ്. അതിസൂക്ഷ്മമായി, തികഞ്ഞ പൂർണ്ണതയോടെ രൂപപ്പെടുത്തിയെടുത്തവ. നിങ്ങളുടെ സ്വപ്നങ്ങൾക്ക് സ്വർണ്ണത്തിൽ ജീവൻ വയ്ക്കുമ്പോൾ.",
       video:
-        "https://res.cloudinary.com/fylz5e3j/video/upload/v1782936959/VN20260702_013328_tbexfn.mp4",
+        "https://res.cloudinary.com/sqsrrir4/video/upload/v1786657281/faizal/faizal_hero.mp4",
       segments: { startAt: 32, loopEnd: 40 },
     },
     {
@@ -34,7 +34,7 @@ export const BRAND: BrandConfig = {
       description:
         "ഈ നാടിൻ്റെ പൈതൃകവും പുതുമയും ഒത്തുചേരുന്ന ആഭരണങ്ങൾ. തലമുറകളായി നിങ്ങൾ നൽകുന്ന വിശ്വാസത്തിന് സ്വർണ്ണത്തേക്കാൾ തിളക്കമുണ്ട്.",
       video:
-        "https://res.cloudinary.com/fylz5e3j/video/upload/v1782936959/VN20260702_013328_tbexfn.mp4",
+        "https://res.cloudinary.com/sqsrrir4/video/upload/v1786657281/faizal/faizal_hero.mp4",
       segments: { startAt: 16, loopEnd: 24 },
     },
   ],
