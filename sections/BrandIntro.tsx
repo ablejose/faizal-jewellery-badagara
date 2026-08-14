@@ -16,7 +16,7 @@ export function BrandIntro() {
             </p>
             <p className="mt-4 max-w-2xl font-sans text-body text-muted">
               Every piece is chosen for its balance of beauty and lightness — refined designs in
-              gold, diamonds and silver, offered as per your occasion, and made to accompany the
+              silver, gemstones and diamonds, offered as per your occasion, and made to accompany the
               moments that matter most.
             </p>
           </Reveal>

@@ -2,9 +2,9 @@ import type { BrandConfig } from "@/types/brand";
 
 export const BRAND: BrandConfig = {
   businessName: "Faizal Jewellery",
-  tagline: "Silver, Gold & Gems in Badagara, Vadakara",
+  tagline: "Silver & Gems in Badagara, Vadakara",
   description:
-    "Faizal Jewellery offers a captivating range of silver, gold, and precious gems on JT Road, Badagara, Vadakara. A trusted name for those seeking elegance and quality.",
+    "Faizal Jewellery offers a captivating range of silver and precious gems on JT Road, Badagara, Vadakara. A trusted name for those seeking elegance and quality.",
 
   logo: "/icons/logo.svg",
   favicon: "/favicon.ico",
@@ -16,7 +16,7 @@ export const BRAND: BrandConfig = {
     {
       quote: "വടകരയുടെ ഹൃദയത്തിൽ നിന്ന്.",
       description:
-        "ഈ നാടിൻ്റെ പൈതൃകവും പുതുമയും ഒത്തുചേരുന്ന ആഭരണങ്ങൾ. തലമുറകളായി നിങ്ങൾ നൽകുന്ന വിശ്വാസത്തിന് സ്വർണ്ണത്തേക്കാൾ തിളക്കമുണ്ട്.",
+        "പുതിയ കാലത്തിന്റെ ട്രെൻഡുകൾക്കനുസരിച്ചുള്ള വെള്ളി ആഭരണങ്ങളും, അഴകിന് മാറ്റ് കൂട്ടുന്ന അപൂർവ്വ രത്നശേഖരവും. നിങ്ങളുടെ ഓരോ സന്തോഷ നിമിഷങ്ങൾക്കും മാറ്റുകൂട്ടാൻ വേണ്ടി മനസ്സറിഞ്ഞു കരുതിവെച്ച അപൂർവ്വ ശേഖരം",
       video:
         "https://res.cloudinary.com/sqsrrir4/video/upload/v1786713474/faizal/faizal_hero.mp4",
       segments: { startAt: 3, loopEnd: 6 },
@@ -50,11 +50,11 @@ export const BRAND: BrandConfig = {
   seo: {
     title: "Faizal Jewellery | Jewellery Store in Vadakara, Kerala",
     description:
-      "Faizal Jewellery — premium gold, diamond and silver jewellery in Vadakara, Kerala. Visit us at JT Rd, Badagara, Vatakara, Kerala 673101.",
+      "Faizal Jewellery — premium silver, gemstone and diamond jewellery in Vadakara, Kerala. Visit us at JT Rd, Badagara, Vatakara, Kerala 673101.",
     keywords: [
       "Faizal Jewellery",
       "jewellery Vadakara",
-      "gold jewellery Vadakara",
+      "gemstone jewellery Vadakara",
       "diamond jewellery Vadakara",
       "silver jewellery Vadakara",
       "jewellery store Kerala",
