@@ -18,7 +18,8 @@ interface CollectionPreviewProps {
  * Server component — the preview images are resolved by the parent section from
  * the Cloudinary manifest (falling back to config products), so this renders no
  * client fetch. Reuses the site's `.marquee-rtl` (smooth, infinite, pauses on
- * hover). Clicking "View All" or any image opens /collections/{slug}.
+ * hover / while pressed). The collection name, the "View All" button, and every
+ * preview image all link to /collections/{slug}.
  */
 export function CollectionPreview({ collection, images }: CollectionPreviewProps) {
   const href = collectionHref(collection.slug);
@@ -33,13 +34,18 @@ export function CollectionPreview({ collection, images }: CollectionPreviewProps
 
   return (
     <div className="border-t border-border pt-8">
-      <div className="container-lux flex items-baseline justify-between gap-4">
-        <h3 className="font-display text-display-m text-ivory">{collection.name}</h3>
+      <div className="container-lux flex items-center justify-between gap-4">
+        <Link href={href} className="min-w-0" aria-label={`View all ${collection.name}`}>
+          <h3 className="truncate font-display text-display-m text-ivory transition-colors hover:text-gold">
+            {collection.name}
+          </h3>
+        </Link>
         <Link
           href={href}
-          className="label-eyebrow shrink-0 whitespace-nowrap transition-colors hover:text-ivory"
+          aria-label={`View all ${collection.name}`}
+          className="inline-flex min-h-[44px] shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-pill border border-gold/60 px-6 py-2 font-sans text-sm font-medium tracking-wide text-ivory transition-colors duration-300 ease-lux hover:border-gold hover:bg-gold hover:text-background"
         >
-          View All →
+          View All <span aria-hidden="true">→</span>
         </Link>
       </div>
 

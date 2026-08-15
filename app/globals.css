@@ -65,7 +65,9 @@ body {
   will-change: transform;
 }
 
-.marquee-rtl:hover {
+.marquee-rtl:hover,
+.marquee-rtl:active,
+.marquee-rtl:focus-within {
   animation-play-state: paused;
 }
 
