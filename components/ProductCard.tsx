@@ -41,7 +41,6 @@ export function ProductCard({ product, eager = false, onSettled }: ProductCardPr
   ];
   if (qty) enquiryLines.push(`Quantity: ${qty}`);
   enquiryLines.push(`Price: ${priceText}`);
-  if (product.image.startsWith("http")) enquiryLines.push(`Photo: ${product.image}`);
   enquiryLines.push("", "Please share the details and availability.");
   const enquiryHref = whatsappHref(BRAND.whatsapp, enquiryLines.join("\n"));
 
