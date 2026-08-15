@@ -15,6 +15,10 @@ export interface Product {
   price: number;
   /** Image URL — a Cloudinary URL or a path under /public. Required. */
   image: string;
+  /** Optional quantity amount, e.g. "2" or "500". */
+  quantity?: string;
+  /** Optional quantity unit, e.g. "kg", "carat", or a custom unit. */
+  unit?: string;
 }
 
 export interface Collection {

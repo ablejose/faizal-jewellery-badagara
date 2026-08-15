@@ -13,8 +13,12 @@ export interface ManifestProduct {
   width?: number;
   height?: number;
   name: string;
-  /** Price in INR. */
+  /** Price in INR. 0 => shown as "Price on request". */
   price: number;
+  /** Optional quantity amount, e.g. "2" or "500". */
+  quantity?: string;
+  /** Optional quantity unit, e.g. "kg", "carat", or a custom unit. */
+  unit?: string;
   createdAt: number;
 }
 
@@ -57,6 +61,8 @@ export function normalizeManifest(raw: unknown): Manifest {
           height: Number(p.height) || undefined,
           name: typeof p.name === "string" ? p.name : "",
           price: Number(p.price) || 0,
+          quantity: typeof p.quantity === "string" && p.quantity.trim() ? p.quantity.trim() : undefined,
+          unit: typeof p.unit === "string" && p.unit.trim() ? p.unit.trim() : undefined,
           createdAt: Number(p.createdAt) || 0,
         })),
     };

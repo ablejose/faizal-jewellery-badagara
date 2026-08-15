@@ -53,6 +53,8 @@ export default async function CollectionPage({ params }: PageProps) {
           name: p.name || collection.name,
           price: p.price,
           image: p.url,
+          quantity: p.quantity,
+          unit: p.unit,
         }))
       : collection.products;
 

@@ -57,3 +57,14 @@ export function formatRupees(amount: number): string {
 export function collectionHref(slug: string): string {
   return `/collections/${slug}`;
 }
+
+/**
+ * Human label for an optional product quantity + unit, e.g. "2 carat".
+ * Returns "" when neither is set.
+ */
+export function quantityLabel(quantity?: string, unit?: string): string {
+  const q = (quantity ?? "").trim();
+  const u = (unit ?? "").trim();
+  if (q && u) return `${q} ${u}`;
+  return q || u || "";
+}

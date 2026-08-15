@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import type { Product } from "@/types/collections";
-import { formatRupees } from "@/lib/format";
+import { formatRupees, quantityLabel } from "@/lib/format";
 
 interface ProductCardProps {
   product: Product;
@@ -17,9 +17,10 @@ interface ProductCardProps {
 }
 
 /**
- * Product card: image, name and rupee price. Matches the site's luxury language
- * (rounded card, gold border, soft hover zoom). Uses next/image for
- * optimisation and reports load completion so the page loader can wait for it.
+ * Product card: image, name, rupee price and optional quantity. Matches the
+ * site's luxury language (rounded card, gold border, soft hover zoom). Uses
+ * next/image for optimisation and reports load completion so the page loader
+ * can wait for it.
  */
 export function ProductCard({ product, eager = false, onSettled }: ProductCardProps) {
   const settled = useRef(false);
@@ -28,6 +29,8 @@ export function ProductCard({ product, eager = false, onSettled }: ProductCardPr
     settled.current = true;
     onSettled?.();
   };
+
+  const qty = quantityLabel(product.quantity, product.unit);
 
   return (
     <article className="group flex flex-col">
@@ -48,6 +51,7 @@ export function ProductCard({ product, eager = false, onSettled }: ProductCardPr
       <p className="mt-1 font-sans text-body text-gold">
         {product.price > 0 ? formatRupees(product.price) : "Price on request"}
       </p>
+      {qty ? <p className="mt-0.5 font-sans text-sm text-muted">{qty}</p> : null}
     </article>
   );
 }
