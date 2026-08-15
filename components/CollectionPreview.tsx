@@ -23,7 +23,7 @@ interface CollectionPreviewProps {
  */
 export function CollectionPreview({ collection, images }: CollectionPreviewProps) {
   const href = collectionHref(collection.slug);
-  const preview = images.slice(0, 3);
+  const preview = images.slice(0, 4);
 
   if (preview.length === 0) return null;
 
