@@ -2,9 +2,9 @@ import type { BrandConfig } from "@/types/brand";
 
 export const BRAND: BrandConfig = {
   businessName: "Faizal Jewellery",
-  tagline: "Silver & Gems in Badagara, Vadakara",
+  tagline: "Silver & Gems in Vadakara",
   description:
-    "Faizal Jewellery offers a captivating range of silver and precious gems on JT Road, Badagara, Vadakara. A trusted name for those seeking elegance and quality.",
+    "Faizal Jewellery offers a captivating range of silver and precious gems on JT Road, Vadakara. A trusted name for those seeking elegance and quality.",
 
   logo: "/icons/logo.svg",
   favicon: "/favicon.ico",
@@ -30,7 +30,7 @@ export const BRAND: BrandConfig = {
     "/images/store4.webp",
   ],
 
-  address: "JT Rd, Badagara, Vatakara, Kerala 673101",
+  address: "JT Rd, Vatakara, Kerala 673101",
   city: "Vadakara",
   state: "Kerala",
   pincode: "673101",
@@ -42,7 +42,7 @@ export const BRAND: BrandConfig = {
   mapsLink:
     "https://maps.app.goo.gl/m9nTLRbFT549VJG17",
 
-  openingHours: "Mon–Sat: 9:30 AM – 8:00 PM · Sunday: 10:00 AM – 7:00 PM",
+  openingHours: "Mon–Sat: 10:00 AM – 8:30 PM · Sunday: Closed",
 
   instagram: "",
   facebook: "https://www.facebook.com/p/Faizal-Jewellery-Silver-and-Gems-100071648712874",
@@ -50,7 +50,7 @@ export const BRAND: BrandConfig = {
   seo: {
     title: "Faizal Jewellery | Jewellery Store in Vadakara, Kerala",
     description:
-      "Faizal Jewellery — premium silver, gemstone and diamond jewellery in Vadakara, Kerala. Visit us at JT Rd, Badagara, Vatakara, Kerala 673101.",
+      "Faizal Jewellery — premium silver, gemstone and diamond jewellery in Vadakara, Kerala. Visit us at JT Rd, Vatakara, Kerala 673101.",
     keywords: [
       "Faizal Jewellery",
       "jewellery Vadakara",
@@ -58,8 +58,6 @@ export const BRAND: BrandConfig = {
       "diamond jewellery Vadakara",
       "silver jewellery Vadakara",
       "jewellery store Kerala",
-      "Badagara",
-      "jewellery Badagara",
     ],
     canonical: "https://faizal-jewellery-badagara.vercel.app",
     ogImage: "/images/store1.webp",

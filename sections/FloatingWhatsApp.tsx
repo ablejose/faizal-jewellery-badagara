@@ -14,7 +14,7 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Message ${BRAND.businessName} on WhatsApp`}
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-pill bg-[#25D366] text-white shadow-lg"
+      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-pill bg-gold text-background shadow-lg"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{
         opacity: scrolling ? 0 : 1,

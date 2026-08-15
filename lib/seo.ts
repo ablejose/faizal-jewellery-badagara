@@ -37,7 +37,7 @@ export function buildJsonLd(brand: BrandConfig): Record<string, unknown>[] {
       postalCode: brand.pincode,
       addressCountry: "IN",
     },
-    openingHours: ["Mo-Sa 09:30-20:00", "Su 10:00-19:00"],
+    openingHours: ["Mo-Sa 10:00-20:30"],
     sameAs,
   };
 
