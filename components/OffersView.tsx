@@ -14,9 +14,10 @@ interface Poster {
 }
 
 /**
- * Offers page view: a full-screen poster stage. A brand loading screen gates on
- * every poster image; once ready, posters show one at a time with a popping
- * arrow bar + dots — but only when a second poster exists.
+ * Offers page view: a Back button on top, then a full-screen poster stage. A
+ * brand loading screen gates on every poster image; once ready, posters show
+ * one at a time with a popping arrow bar + dots — but only when a second poster
+ * exists.
  */
 export function OffersView({ posters }: { posters: Poster[] }) {
   const total = posters.length;
@@ -52,14 +53,16 @@ export function OffersView({ posters }: { posters: Poster[] }) {
 
   if (total === 0) {
     return (
-      <section className="container-lux flex min-h-[70svh] flex-col items-center justify-center gap-4 pb-24 text-center">
-        <span className="label-eyebrow">Offers</span>
-        <h1 className="font-display text-display-l text-ivory">No offers right now</h1>
-        <p className="max-w-md font-sans text-body text-muted">
-          Check back soon — festive promotions and special prices will appear here.
-        </p>
-        <div className="mt-4">
+      <section className="container-lux pb-24">
+        <div className="pt-2">
           <BackButton />
+        </div>
+        <div className="flex min-h-[60svh] flex-col items-center justify-center gap-4 text-center">
+          <span className="label-eyebrow">Offers</span>
+          <h1 className="font-display text-display-l text-ivory">No offers right now</h1>
+          <p className="max-w-md font-sans text-body text-muted">
+            Check back soon — festive promotions and special prices will appear here.
+          </p>
         </div>
       </section>
     );
@@ -70,7 +73,11 @@ export function OffersView({ posters }: { posters: Poster[] }) {
       {!ready ? <ProductsLoadingScreen name="Offers" /> : null}
 
       <section>
-        <div className="relative flex min-h-[calc(100svh-7rem)] w-full items-center justify-center overflow-hidden bg-background">
+        <div className="container-lux pt-2 pb-4">
+          <BackButton />
+        </div>
+
+        <div className="relative flex min-h-[calc(100svh-11rem)] w-full items-center justify-center overflow-hidden bg-background">
           {posters.map((poster, i) => (
             <div
               key={poster.id}
@@ -127,10 +134,6 @@ export function OffersView({ posters }: { posters: Poster[] }) {
               </div>
             </>
           ) : null}
-        </div>
-
-        <div className="container-lux py-6">
-          <BackButton />
         </div>
       </section>
     </>

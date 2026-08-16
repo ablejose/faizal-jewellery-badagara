@@ -44,9 +44,6 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  icons: {
-    icon: BRAND.favicon,
-  },
   openGraph: {
     type: "website",
     title: BRAND.seo.title,

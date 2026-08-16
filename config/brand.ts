@@ -48,19 +48,21 @@ export const BRAND: BrandConfig = {
   facebook: "https://www.facebook.com/p/Faizal-Jewellery-Silver-and-Gems-100071648712874",
 
   seo: {
-    title: "Faizal Jewellery | Jewellery Store in Vadakara, Kerala",
+    title: "Faizal Jewellery | Silver & Gems Store in Vadakara, Kerala",
     description:
-      "Faizal Jewellery — premium silver, gemstone and diamond jewellery in Vadakara, Kerala. Visit us at JT Rd, Vatakara, Kerala 673101.",
+      "Faizal Jewellery is a silver and gems store in Vadakara, Kerala — silver jewellery, certified gemstones and precious loose stones. Visit us at JT Rd, Vatakara, Kerala 673101.",
     keywords: [
       "Faizal Jewellery",
-      "jewellery Vadakara",
-      "gemstone jewellery Vadakara",
-      "diamond jewellery Vadakara",
+      "silver and gems store Vadakara",
+      "silver store Vadakara",
+      "gems store Vadakara",
+      "gemstone store Vadakara",
       "silver jewellery Vadakara",
+      "jewellery store Vadakara",
       "jewellery store Kerala",
     ],
     canonical: "https://faizal-jewellery-badagara.vercel.app",
-    ogImage: "/images/store1.webp",
+    ogImage: "/og-image.jpg",
   },
 
   faq: [],
