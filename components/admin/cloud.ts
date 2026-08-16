@@ -64,11 +64,8 @@ export async function apiJson<T = unknown>(url: string, method: string, body?: u
   return data as T;
 }
 
-/** Compress, get a signature from our server, then upload straight to Cloudinary. */
-export async function signAndUpload(slug: string, file: File): Promise<UploadResult> {
-  const prepared = await compressToWebp(file);
-  const sign = await apiJson<SignResponse>("/api/admin/sign-upload", "POST", { slug });
-
+/** Send prepared bytes straight to Cloudinary using a server-issued signature. */
+async function uploadToCloudinary(sign: SignResponse, prepared: Blob): Promise<UploadResult> {
   const form = new FormData();
   form.append("file", prepared, prepared instanceof File ? prepared.name : "upload.webp");
   form.append("api_key", sign.apiKey);
@@ -86,4 +83,18 @@ export async function signAndUpload(slug: string, file: File): Promise<UploadRes
   }
   const data = (await res.json()) as { public_id: string; secure_url: string; width?: number; height?: number };
   return { publicId: data.public_id, url: data.secure_url, width: data.width, height: data.height };
+}
+
+/** Compress, get a product signature from our server, then upload to Cloudinary. */
+export async function signAndUpload(slug: string, file: File): Promise<UploadResult> {
+  const prepared = await compressToWebp(file);
+  const sign = await apiJson<SignResponse>("/api/admin/sign-upload", "POST", { slug });
+  return uploadToCloudinary(sign, prepared);
+}
+
+/** Compress, get an offer-poster signature from our server, then upload to Cloudinary. */
+export async function signAndUploadOffer(file: File): Promise<UploadResult> {
+  const prepared = await compressToWebp(file);
+  const sign = await apiJson<SignResponse>("/api/admin/sign-upload", "POST", { kind: "offer" });
+  return uploadToCloudinary(sign, prepared);
 }

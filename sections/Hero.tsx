@@ -45,6 +45,25 @@ export function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button href="#collections">Explore Collections</Button>
+            <Button href="/offers" className="animate-pop" ariaLabel="View current offers">
+              <span className="inline-flex items-center gap-2">
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L3 13V4a1 1 0 0 1 1-1h9l7.59 7.59a2 2 0 0 1 0 2.82Z" />
+                  <circle cx="7.5" cy="7.5" r="1.5" fill="currentColor" stroke="none" />
+                </svg>
+                Offers
+              </span>
+            </Button>
             <Button href={telHref(BRAND.phone)} variant="secondary">
               Call Now
             </Button>

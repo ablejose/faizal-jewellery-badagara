@@ -22,6 +22,15 @@ export interface ManifestProduct {
   createdAt: number;
 }
 
+/** A promotional offer poster (image only) shown full-screen on /offers. */
+export interface ManifestOffer {
+  publicId: string;
+  url: string;
+  width?: number;
+  height?: number;
+  createdAt: number;
+}
+
 export interface ManifestCollection {
   products: ManifestProduct[];
 }
@@ -30,18 +39,20 @@ export interface Manifest {
   updatedAt: number;
   /** Keyed by collection slug (matches config/collections.ts). */
   collections: Record<string, ManifestCollection>;
+  /** Promotional offer posters shown on the /offers page. */
+  offers: ManifestOffer[];
 }
 
 /** Fixed public id of the manifest raw asset on the primary Cloudinary cloud. */
 export const MANIFEST_PUBLIC_ID = "faizal/data/manifest";
 
 export function emptyManifest(): Manifest {
-  return { updatedAt: 0, collections: {} };
+  return { updatedAt: 0, collections: {}, offers: [] };
 }
 
 /** Coerce arbitrary JSON into a valid Manifest, dropping malformed entries. */
 export function normalizeManifest(raw: unknown): Manifest {
-  const obj = (raw ?? {}) as { updatedAt?: unknown; collections?: unknown };
+  const obj = (raw ?? {}) as { updatedAt?: unknown; collections?: unknown; offers?: unknown };
   const collections: Record<string, ManifestCollection> = {};
   const src = obj.collections && typeof obj.collections === "object" ? (obj.collections as Record<string, unknown>) : {};
 
@@ -68,7 +79,21 @@ export function normalizeManifest(raw: unknown): Manifest {
     };
   }
 
-  return { updatedAt: Number(obj.updatedAt) || 0, collections };
+  const offersSrc = Array.isArray(obj.offers) ? obj.offers : [];
+  const offers: ManifestOffer[] = offersSrc
+    .filter(
+      (o): o is Record<string, unknown> =>
+        !!o && typeof (o as { publicId?: unknown }).publicId === "string" && typeof (o as { url?: unknown }).url === "string",
+    )
+    .map((o) => ({
+      publicId: String(o.publicId),
+      url: String(o.url),
+      width: Number(o.width) || undefined,
+      height: Number(o.height) || undefined,
+      createdAt: Number(o.createdAt) || 0,
+    }));
+
+  return { updatedAt: Number(obj.updatedAt) || 0, collections, offers };
 }
 
 /** Primary Cloudinary cloud name (server env, with a sensible default). */
@@ -82,17 +107,14 @@ export function primaryCloudName(): string {
 
 /**
  * PUBLIC read of the manifest via the deterministic `raw` delivery URL — no API
- * secret required. Cached by the Next data cache and tagged "manifest" so admin
- * writes can invalidate it with revalidateTag("manifest"). Returns an empty
- * manifest on any error so the site falls back to config placeholders.
+ * secret required. Kept uncached (no-store) so the public catalogue always
+ * reflects the current Cloudinary state, even when products are updated
+ * out-of-band. Returns an empty manifest on any error so the site falls back to
+ * config placeholders.
  */
 export async function getPublicManifest(): Promise<Manifest> {
   const url = `https://res.cloudinary.com/${primaryCloudName()}/raw/upload/${MANIFEST_PUBLIC_ID}`;
   try {
-    // Always read the live manifest so the public catalogue reflects the
-    // current Cloudinary state (products may be updated out-of-band, not only
-    // via the admin panel's revalidateTag). Kept uncached to avoid serving a
-    // stale/empty manifest from Vercel's persisted data cache.
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) return emptyManifest();
     return normalizeManifest(await res.json());

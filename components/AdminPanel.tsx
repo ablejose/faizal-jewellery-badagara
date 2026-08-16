@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { COLLECTIONS } from "@/config/collections";
 import { CollectionUploader } from "@/components/admin/CollectionUploader";
+import { OffersUploader } from "@/components/admin/OffersUploader";
 import { apiJson } from "@/components/admin/cloud";
 import type { Manifest } from "@/lib/manifest";
 
@@ -41,7 +42,7 @@ export function AdminPanel() {
           <p className="label-eyebrow text-gold">Faizal Jewellery</p>
           <h1 className="mt-2 font-display text-4xl text-ivory">Collection manager</h1>
           <p className="mt-2 text-sm text-ivory/60">
-            Add or remove product photos. Changes go live within a few seconds.
+            Add or remove product photos and offer posters. Changes go live within a few seconds.
           </p>
         </div>
         <button
@@ -57,6 +58,12 @@ export function AdminPanel() {
       {error ? <p className="mt-6 text-sm text-[#ff9b9b]">{error}</p> : null}
 
       <div className="mt-10 flex flex-col gap-8">
+        <OffersUploader
+          offers={manifest?.offers ?? []}
+          loading={manifest === null}
+          onChanged={refresh}
+        />
+
         {COLLECTIONS.map((collection) => (
           <CollectionUploader
             key={collection.slug}

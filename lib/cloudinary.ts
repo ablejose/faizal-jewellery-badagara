@@ -46,6 +46,11 @@ export function productPublicId(slug: string): string {
   return `faizal/collections/${safe}/${crypto.randomUUID()}`;
 }
 
+/** Public id for an offer poster under the offers folder. */
+export function offerPublicId(): string {
+  return `faizal/offers/${crypto.randomUUID()}`;
+}
+
 /** Sign an upload server-side. The API secret is used but never returned. */
 export function signUpload(paramsToSign: Record<string, string>): {
   signature: string;

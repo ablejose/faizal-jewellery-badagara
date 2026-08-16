@@ -71,6 +71,21 @@ body {
   animation-play-state: paused;
 }
 
+/* Attention "pop" pulse — the Offers CTA and the offers-page nav arrows. */
+@keyframes pop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.animate-pop {
+  animation: pop 1.5s ease-in-out infinite;
+}
+
 .text-gold-sweep {
   background-image: linear-gradient(
     100deg,
