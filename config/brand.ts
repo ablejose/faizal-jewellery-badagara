@@ -61,7 +61,7 @@ export const BRAND: BrandConfig = {
       "jewellery store Vadakara",
       "jewellery store Kerala",
     ],
-    canonical: "https://faizal-jewellery-badagara.vercel.app",
+    canonical: "https://faizaljewellery.in",
     ogImage: "/og-image.jpg",
   },
 
